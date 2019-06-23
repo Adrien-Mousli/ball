@@ -250,16 +250,19 @@ void MainGame::run() {
     
     
     
-Uint32 newTicks = SDL_GetTicks();
-		Uint32 frameTime = newTikcs - previousTikcs;
-		previousTicks = newTicks; // Stockez newTicks dans previousTicks afin que nous puissions l'utiliser
-		// obtenir le total de la variable deltaTime
-		float totalDeltaTime = (float)frameTime / DESIRED_FRAMETIME;
-	
-		int 1 = 0; //ce compteur fait en sorte que nous la boucle ne s'étègne pas
-		while (totalDeltaTime > 0.0f && i < MAX_PHYSICS_STEPS) {
-			//le deltaTime devrait être le plus petit par rapport totalDeltaTime et au MAX_DELTA_TIME    
-    
+
+				case SDL_MOUSEMOTION:
+					m_ballController.onMouseMove(m_balls, (float)event.motion.x, (float)m_screenHeight - (float)event.motion.y);
+					m_inputManager.setMouseCoords((float)event.motion.x, (float)event.motion.y);
+					break;
+				case SDL_KEYDOWN:
+					m_inputManager.pressKey(event.key.keysym.sym);
+					break;
+				case SDL_KEYUP:
+					m_inputManager.releaseKey(event.key.keysym.sym);
+					break;
+				case SDL_BUTTONDOWN:
+					m_ballcontroller.onMouseDown(m_balls, (float))
     
     
     
