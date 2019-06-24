@@ -15,6 +15,7 @@ class Ball {
 	
 	}
 
+
 	public var speed : Point;
 	public var ballRadius : int;
 
@@ -93,3 +94,33 @@ private function update(e:Event) :void { game.update(); }
 			}
 
  };
+
+ {
+	 bool handle_input()
+	 {
+		 SDL_Event event;
+		 while (SDL_PollEvent(&event)) {
+			 if (event.type == SDL_QUIT) {
+				 return false;
+			 }
+			 if (event.type == SDL_KEYDOWN) {
+				 if (event.key.keysym.sym == SDLK_UP)
+					 player.direction = -1;
+				 else if (event.key.keysym.sym == SDLK_DOWN)
+					 player.direction = 1;
+				 else if (event.key.keysym.sym == SDLK_SPACE)
+					 ball.start = false;
+				 else if (event.key.keysym.sym == SDLK_ESCAPE)
+					 return false;
+				 else if (event.key.keysym.sym == SDLK_p)
+					 game_paused = !game_paused;
+			 }
+			 else if (event.type == SDL_KEYUP) {
+				 if (event.key.keysym.sym == SDLK_UP || event.key.keysym.sym == SDLK_DOWN)
+					 player.direction = 0;
+			 }
+		 }
+		 return true;
+	 }
+ }
+if 
