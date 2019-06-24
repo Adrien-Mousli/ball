@@ -26,3 +26,15 @@ for (auto& ball : balls) {
 		{
 		//balls have collided
 		}
+}
+	
+	
+
+case SDL_KEYS:
+	if (mvt == true) {
+		for (i = 0; i < NB_BALLS; i++) {
+			vect[i].x = vect[i].x + speed | time
+				vect[i].y = vect[i].y + speed | time
+				(vect[i].coul =(nullptr))
+		}
+	}
